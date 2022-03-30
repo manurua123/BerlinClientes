@@ -1,0 +1,27 @@
+<div class="contenedor">
+  <div *ngIf="!home && solari"><app-solari></app-solari></div>
+
+  <mat-card *ngIf="home" class="card">
+    <mat-card-header>
+      <img src="assets/img/logo_berlin.svg" />
+    </mat-card-header>
+    <mat-card-content>
+      <h2>Seguimiento de obra</h2>
+      <p>Ingrese el el numero de obra que desea visualizar.</p>
+      <form class="example-form" #formObra="ngForm" (ngSubmit)="renderObra()">
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Codigo Seguimiento</mat-label>
+          <input
+            matInput
+            [(ngModel)]="codObra"
+            type="text"
+            placeholder="EJ. BE0008901"
+            name="codigo"
+          />
+        </mat-form-field>
+        <br />
+        <button type="submit" mat-raised-button color="accent">BUSCAR</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
